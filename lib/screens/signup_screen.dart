@@ -1,6 +1,7 @@
 import 'package:dilpartner/styles/asset_manager.dart';
-import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
+import 'package:dilpartner/widgets/form_pass_widget.dart';
+import 'package:dilpartner/widgets/form_text_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:flutter/material.dart';
 
@@ -17,78 +18,24 @@ class SignUpScreen extends StatelessWidget {
         horizontal: 24.0,
         vertical: 50.0,
       ),
-      decoration: const BoxDecoration(color: DilPartnerColor.primaryColor),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             const HeaderLogo(),
             const SizedBox(
-              height: 30.0,
+              height: 20.0,
             ),
-            Image.asset("${DilAssetManager.asset}/hero_image.png"),
+            SizedBox(
+                width: double.infinity,
+                height: 215.0,
+                child: Image.asset("${DilAssetManager.asset}/hero_image.png")),
             const SizedBox(
-              height: 30.0,
+              height: 20.0,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Complete Name",
-                  style: white400.copyWith(fontSize: 16.0),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  maxLength: 100,
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 1.0, color: DilPartnerColor.fontColor),
-                          borderRadius: BorderRadius.circular(20.0))),
-                ),
-                const SizedBox(
-                  height: 4.0,
-                ),
-                Text(
-                  "Email Address",
-                  style: white400.copyWith(fontSize: 16.0),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  maxLength: 100,
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 1.0, color: DilPartnerColor.fontColor),
-                          borderRadius: BorderRadius.circular(20.0))),
-                ),
-                const SizedBox(
-                  height: 4.0,
-                ),
-                Text(
-                  "Password",
-                  style: white400.copyWith(fontSize: 16.0),
-                ),
-                const SizedBox(
-                  height: 10.0,
-                ),
-                TextFormField(
-                  maxLength: 100,
-                  decoration: InputDecoration(
-                      enabledBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                              width: 1.0, color: DilPartnerColor.fontColor),
-                          borderRadius: BorderRadius.circular(20.0))),
-                ),
-                const SizedBox(
-                  height: 4.0,
-                ),
-              ],
-            ),
+            FormTextCustom(name: "Complete Name"),
+            FormTextCustom(name: "Email Address"),
+            FormPassCustom(name: "Password"),
             SizedBox(
               height: 55.0,
               width: MediaQuery.sizeOf(context).width,
@@ -96,13 +43,24 @@ class SignUpScreen extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20.0)),
-                      backgroundColor:
-                          const Color.fromARGB(255, 188, 132, 228)),
+                      backgroundColor: const Color.fromARGB(255, 85, 107, 153)),
                   onPressed: () {},
                   child: Text(
                     "Get Started",
                     style: white700.copyWith(fontSize: 18.0),
                   )),
+            ),
+            const SizedBox(
+              height: 6.0,
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(),
+              // ignore: sort_child_properties_last
+              child: Text(
+                "Sign In to My Account",
+                style: grey400.copyWith(fontSize: 14.0),
+              ),
             )
           ],
         ),
