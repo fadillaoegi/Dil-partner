@@ -2,6 +2,8 @@ import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 
+void main() => runApp(const MainApp());
+
 class MainApp extends StatefulWidget {
   const MainApp({super.key});
 
