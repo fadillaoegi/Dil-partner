@@ -17,7 +17,7 @@ class SignUpScreen extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         horizontal: 24.0,
-        vertical: 40.0,
+        vertical: 42.0,
       ),
       child: SingleChildScrollView(
         child: Column(
