@@ -1,6 +1,7 @@
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/screens/splash_screen.dart';
 import 'package:dilpartner/styles/theme_default.dart';
+import 'package:dilpartner/utils/app_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MainApp());
@@ -15,13 +16,8 @@ class MainApp extends StatefulWidget {
 class _MainAppState extends State<MainApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: getThemeDefault(),
-      debugShowCheckedModeBanner: false,
-      initialRoute: DilPartnerRoute.splashScreen,
-      routes: {
-        DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
-      },
-    );
+    return const AppScreen();
   }
 }
+
+

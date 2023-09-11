@@ -6,9 +6,14 @@ import 'package:dilpartner/widgets/form_text_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:flutter/material.dart';
 
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({super.key});
 
+  @override
+  State<SigninScreen> createState() => _SigninScreenState();
+}
+
+class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,11 +39,10 @@ class SignUpScreen extends StatelessWidget {
             const SizedBox(
               height: 20.0,
             ),
-            FormTextCustom(name: "Complete Name"),
             FormTextCustom(name: "Email Address"),
             FormPassCustom(name: "Password"),
             ButtonDefault(
-              text: "Get Started",
+              text: "Sign In",
               onPress: () {},
             ),
             const SizedBox(
@@ -48,7 +52,7 @@ class SignUpScreen extends StatelessWidget {
               onPressed: () {},
               // ignore: sort_child_properties_last
               child: Text(
-                "Sign In to My Account",
+                "Sign Up to My Account",
                 style: grey400.copyWith(fontSize: 14.0),
               ),
             )

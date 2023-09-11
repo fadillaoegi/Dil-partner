@@ -6,7 +6,6 @@ class ButtonDefault extends StatelessWidget {
   String? text;
   VoidCallback? onPress;
   ButtonDefault({super.key, this.onPress, this.text});
-
   @override
   Widget build(BuildContext context) {
     return SizedBox(
