@@ -1,6 +1,3 @@
-import 'package:dilpartner/routes/route.dart';
-import 'package:dilpartner/screens/splash_screen.dart';
-import 'package:dilpartner/styles/theme_default.dart';
 import 'package:dilpartner/utils/app_screen.dart';
 import 'package:flutter/material.dart';
 

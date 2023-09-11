@@ -22,7 +22,7 @@ class _SigninScreenState extends State<SigninScreen> {
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.symmetric(
         horizontal: 24.0,
-        vertical: 40.0,
+        vertical: 42.0,
       ),
       child: SingleChildScrollView(
         child: Column(
@@ -41,6 +41,9 @@ class _SigninScreenState extends State<SigninScreen> {
             ),
             FormTextCustom(name: "Email Address"),
             FormPassCustom(name: "Password"),
+            const SizedBox(
+              height: 116.0,
+            ),
             ButtonDefault(
               text: "Sign In",
               onPress: () {},
