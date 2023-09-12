@@ -15,14 +15,14 @@ TextStyle white400 = GoogleFonts.dosis(
 
 TextStyle white500 = GoogleFonts.dosis(
     color: DilPartnerColor.fontColor, fontWeight: FontWeight.w500);
-    TextStyle white700 = GoogleFonts.dosis(
+TextStyle white700 = GoogleFonts.dosis(
     color: DilPartnerColor.fontColor, fontWeight: FontWeight.w700);
 
 // NOTE : GREY FONT
 TextStyle grey300 = GoogleFonts.dosis(
-    color: DilPartnerColor.fontColor, fontWeight: FontWeight.w300);
+    color: DilPartnerColor.subFontColor, fontWeight: FontWeight.w300);
 
 TextStyle grey400 = GoogleFonts.dosis(
-    color: DilPartnerColor.fontColor, fontWeight: FontWeight.w400);
+    color: DilPartnerColor.subFontColor, fontWeight: FontWeight.w400);
 TextStyle grey500 = GoogleFonts.dosis(
     color: DilPartnerColor.subFontColor, fontWeight: FontWeight.w500);
