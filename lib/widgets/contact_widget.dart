@@ -1,10 +1,14 @@
-import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Contact extends StatelessWidget {
-  const Contact({super.key});
+  String? name;
+  String? imgUrl;
+  String? subName;
+
+  Contact({super.key, this.imgUrl, this.name, this.subName});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +28,8 @@ class Contact extends StatelessWidget {
             width: 70.0,
             child: CircleAvatar(
               backgroundImage:
-                  AssetImage("${DilAssetManager.asset}/me_image.png"),
+                  // AssetImage("${DilAssetManager.asset}/me_image.png"),
+                  AssetImage(imgUrl!),
             ),
           ),
           const SizedBox(
@@ -35,11 +40,11 @@ class Contact extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                "Nabila",
+                name!,
                 style: white500.copyWith(fontSize: 20.0),
               ),
               Text(
-                "24, Doctor",
+                subName!,
                 style: grey500.copyWith(fontSize: 14.0),
               )
             ],
