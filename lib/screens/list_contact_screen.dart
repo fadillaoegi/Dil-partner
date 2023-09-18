@@ -1,6 +1,4 @@
 import 'package:dilpartner/styles/asset_manager.dart';
-import 'package:dilpartner/styles/colors.dart';
-import 'package:dilpartner/styles/fonts.dart';
 import 'package:dilpartner/widgets/contact_widget.dart';
 import 'package:dilpartner/widgets/header_one_widget.dart';
 import 'package:flutter/material.dart';
