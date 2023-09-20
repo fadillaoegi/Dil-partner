@@ -1,6 +1,9 @@
+
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
+import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/widgets/contact_widget.dart';
+import 'package:dilpartner/widgets/header_one_widget.dart';
 import 'package:flutter/material.dart';
 
 class ListContactScreen extends StatefulWidget {
@@ -22,33 +25,13 @@ class _ListContactScreenState extends State<ListContactScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  IconButton(
-                    iconSize: 24.0,
-                    color: DilPartnerColor.fontColor,
-                    onPressed: () {},
-                    icon: const Icon(Icons.arrow_back),
-                  ),
-                  Text(
-                    textAlign: TextAlign.center,
-                    "People You\nLoved",
-                    style: white500.copyWith(fontSize: 20.0),
-                  ),
-                  IconButton(
-                    iconSize: 24.0,
-                    color: DilPartnerColor.fontColor,
-                    onPressed: () {},
-                    icon: const Icon(Icons.search),
-                  ),
-                ],
-              ),
+              // NOTE: HEADER
+              HeaderOneWidget(
+                  text: "People You\nLoved", icon: const Icon(Icons.search)),
 
               const SizedBox(
                 height: 32.0,
               ),
-
               // NOTE: List Contact
               Contact(
                 nameContact: "Shofa",
@@ -69,6 +52,26 @@ class _ListContactScreenState extends State<ListContactScreen> {
               Contact(
                 nameContact: "Oom",
                 subContact: "24, Programmer",
+              // NOTE: List Contact`
+              Contact(
+                name: "Fadil",
+                imgUrl: "${DilAssetManager.asset}/me_image.png",
+                subName: "halloo..",
+              ),
+              Contact(
+                name: "Shofa",
+                imgUrl: "${DilAssetManager.asset}/people_love2_image.png",
+                subName: "kamu kosong nggak minggu ini?",
+              ),
+              Contact(
+                name: "Nabila",
+                imgUrl: "${DilAssetManager.asset}/people_love1_image.png",
+                subName: "Bii, makan yuuk..",
+              ),
+              Contact(
+                name: "Alifa",
+                imgUrl: "${DilAssetManager.asset}/people_love3_image.png",
+                subName: "Bii, makan yuuk..",
               ),
             ],
           ),
