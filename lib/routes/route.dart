@@ -4,6 +4,7 @@ class DilPartnerRoute {
   static String signUpScreen = '$root/signUpScreen';
   static String signUpUploadScreen = '$signUpScreen/signUpUploadScreen';
   static String signInScreen = '$root/signInScreen';
+  static String uploadScreen = '$root/uploadScreen';
   static String profileScreen = '$root/profileScreen';
   static String listContactScreen = '$root/listContactScreen';
 }

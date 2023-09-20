@@ -4,6 +4,7 @@ import 'package:dilpartner/screens/signin_screen.dart';
 import 'package:dilpartner/screens/signup_screen.dart';
 import 'package:dilpartner/screens/signup_upload_screen.dart';
 import 'package:dilpartner/screens/splash_screen.dart';
+import 'package:dilpartner/screens/upload_photo_screen.dart';
 import 'package:dilpartner/styles/theme_default.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class AppScreen extends StatelessWidget {
     return MaterialApp(
       theme: getThemeDefault(),
       debugShowCheckedModeBanner: false,
+      initialRoute: DilPartnerRoute.uploadScreen,
       initialRoute: DilPartnerRoute.signUpUploadScreen,
       routes: {
         DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
@@ -25,6 +27,7 @@ class AppScreen extends StatelessWidget {
         DilPartnerRoute.signUpUploadScreen: (context) => const SignupUpload(),
         DilPartnerRoute.listContactScreen: (context) =>
             const ListContactScreen(),
+        DilPartnerRoute.uploadScreen: (context) => const UploadPhotoScreen(),
       },
     );
   }
