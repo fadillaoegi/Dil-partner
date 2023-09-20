@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 
 class SigninScreen extends StatefulWidget {
   const SigninScreen({super.key});
-
   @override
   State<SigninScreen> createState() => _SigninScreenState();
 }

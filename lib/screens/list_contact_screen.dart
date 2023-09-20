@@ -1,4 +1,3 @@
-import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:dilpartner/widgets/contact_widget.dart';
@@ -51,16 +50,26 @@ class _ListContactScreenState extends State<ListContactScreen> {
               ),
 
               // NOTE: List Contact
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
-              const Contact(),
+              Contact(
+                nameContact: "Shofa",
+                subContact: "24, Teacher",
+              ),
+              Contact(
+                nameContact: "Nabila",
+                subContact: "24, Teacher",
+              ),
+              Contact(
+                nameContact: "Alifa",
+                subContact: "24, Teacher",
+              ),
+              Contact(
+                nameContact: "Fadil",
+                subContact: "24, Programmer",
+              ),
+              Contact(
+                nameContact: "Oom",
+                subContact: "24, Programmer",
+              ),
             ],
           ),
         ),
