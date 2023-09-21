@@ -49,7 +49,7 @@ class SignUpScreen extends StatelessWidget {
               // ignore: sort_child_properties_last
               child: Text(
                 "Sign In to My Account",
-                style: grey400.copyWith(fontSize: 14.0),
+                style: grey400.copyWith(fontSize: 16.0),
               ),
             )
           ],

@@ -18,16 +18,15 @@ class AppScreen extends StatelessWidget {
     return MaterialApp(
       theme: getThemeDefault(),
       debugShowCheckedModeBanner: false,
-      initialRoute: DilPartnerRoute.uploadScreen,
-      initialRoute: DilPartnerRoute.signUpUploadScreen,
+      initialRoute: DilPartnerRoute.signUpAgejobScreen,
       routes: {
         DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
         DilPartnerRoute.signUpScreen: (context) => const SignUpScreen(),
         DilPartnerRoute.signInScreen: (context) => const SigninScreen(),
-        DilPartnerRoute.signUpUploadScreen: (context) => const SignupUpload(),
+        DilPartnerRoute.signUpAgejobScreen: (context) => const SignupUpAgejob(),
+        DilPartnerRoute.uploadScreen: (context) => const UploadPhotoScreen(),
         DilPartnerRoute.listContactScreen: (context) =>
             const ListContactScreen(),
-        DilPartnerRoute.uploadScreen: (context) => const UploadPhotoScreen(),
       },
     );
   }

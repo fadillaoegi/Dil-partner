@@ -3,14 +3,14 @@ import 'package:dilpartner/widgets/button_default_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:flutter/material.dart';
 
-class SignupUpload extends StatefulWidget {
-  const SignupUpload({super.key});
+class SignupUpAgejob extends StatefulWidget {
+  const SignupUpAgejob({super.key});
 
   @override
-  State<SignupUpload> createState() => _SignupUploadState();
+  State<SignupUpAgejob> createState() => _SignupUpAgejobState();
 }
 
-class _SignupUploadState extends State<SignupUpload> {
+class _SignupUpAgejobState extends State<SignupUpAgejob> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
