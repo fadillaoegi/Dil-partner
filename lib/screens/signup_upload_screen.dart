@@ -1,11 +1,11 @@
-import 'package:dilpartner/styles/fonts.dart';
+import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
+import 'package:dilpartner/widgets/form_text_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:flutter/material.dart';
 
 class SignupUpAgejob extends StatefulWidget {
   const SignupUpAgejob({super.key});
-
   @override
   State<SignupUpAgejob> createState() => _SignupUpAgejobState();
 }
@@ -29,21 +29,23 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               const SizedBox(
                 height: 20.0,
               ),
+              SizedBox(
+                  width: double.infinity,
+                  height: 215.0,
+                  child:
+                      Image.asset("${DilAssetManager.asset}/hero_image.png")),
+              const SizedBox(
+                height: 20.0,
+              ),
+              FormTextCustom(name: "Occupation"),
+              FormTextCustom(name: "Age"),
+              const SizedBox(
+                height: 131.0,
+              ),
               ButtonDefault(
                 text: "Get Started",
                 onPress: () {},
               ),
-              const SizedBox(
-                height: 6.0,
-              ),
-              TextButton(
-                onPressed: () {},
-                // ignore: sort_child_properties_last
-                child: Text(
-                  "Skip for now",
-                  style: grey400.copyWith(fontSize: 14.0),
-                ),
-              )
             ],
           ),
         ),
