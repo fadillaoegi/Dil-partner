@@ -2,7 +2,7 @@ import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/screens/list_contact_screen.dart';
 import 'package:dilpartner/screens/signin_screen.dart';
 import 'package:dilpartner/screens/signup_screen.dart';
-import 'package:dilpartner/screens/signup_upload_screen.dart';
+import 'package:dilpartner/screens/signup_jobage_screen.dart';
 import 'package:dilpartner/screens/splash_screen.dart';
 import 'package:dilpartner/screens/upload_photo_screen.dart';
 import 'package:dilpartner/styles/theme_default.dart';
