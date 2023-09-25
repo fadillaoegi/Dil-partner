@@ -1,6 +1,8 @@
+import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
-import 'package:dilpartner/styles/fonts.dart';
+import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
+import 'package:dilpartner/widgets/button_text_widget.dart';
 import 'package:dilpartner/widgets/form_pass_widget.dart';
 import 'package:dilpartner/widgets/form_text_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
@@ -15,6 +17,8 @@ class SigninScreen extends StatefulWidget {
 class _SigninScreenState extends State<SigninScreen> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController? signinEmailController;
+    TextEditingController? signinPasswordController;
     return Scaffold(
         body: Container(
       height: MediaQuery.sizeOf(context).height,
@@ -38,8 +42,14 @@ class _SigninScreenState extends State<SigninScreen> {
             const SizedBox(
               height: 20.0,
             ),
-            FormTextCustom(name: "Email Address"),
-            FormPassCustom(name: "Password"),
+            FormTextCustom(
+              name: "Email Address",
+              borderRadius: BorderRadius.circular(20.0),
+              controller: signinEmailController,
+              borderSide: const BorderSide(color: DilPartnerColor.buttonColor),
+            ),
+            FormPassCustom(
+                name: "Password", controller: signinPasswordController),
             const SizedBox(
               height: 116.0,
             ),
@@ -50,13 +60,12 @@ class _SigninScreenState extends State<SigninScreen> {
             const SizedBox(
               height: 6.0,
             ),
-            TextButton(
-              onPressed: () {},
-              // ignore: sort_child_properties_last
-              child: Text(
-                "Sign Up to My Account",
-                style: grey400.copyWith(fontSize: 14.0),
-              ),
+            ButtonTextWidget(
+              onPress: () {
+                Navigator.pushReplacementNamed(
+                    context, DilPartnerRoute.signUpScreen);
+              },
+              text: "Sign Up to My Account",
             )
           ],
         ),

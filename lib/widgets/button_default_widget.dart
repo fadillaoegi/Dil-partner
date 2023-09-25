@@ -1,3 +1,4 @@
+import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,7 @@ class ButtonDefault extends StatelessWidget {
           style: ElevatedButton.styleFrom(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20.0)),
-              backgroundColor: const Color.fromARGB(255, 85, 107, 153)),
+              backgroundColor: DilPartnerColor.buttonColor),
           onPressed: onPress!,
           child: Text(
             text!,
