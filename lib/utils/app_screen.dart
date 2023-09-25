@@ -18,7 +18,7 @@ class AppScreen extends StatelessWidget {
     return MaterialApp(
       theme: getThemeDefault(),
       debugShowCheckedModeBanner: false,
-      initialRoute: DilPartnerRoute.signUpAgejobScreen,
+      initialRoute: DilPartnerRoute.signUpScreen,
       routes: {
         DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
         DilPartnerRoute.signUpScreen: (context) => const SignUpScreen(),

@@ -7,13 +7,16 @@ class FormTextCustom extends StatelessWidget {
   String? name;
   String? hint;
   TextEditingController? controller;
-  // Function? onChange;
+  BorderRadius? borderRadius;
+  BorderSide? borderSide;
 
   FormTextCustom({
     super.key,
     this.controller,
     this.hint,
     this.name,
+    this.borderRadius,
+    this.borderSide,
   });
 
   @override
@@ -29,14 +32,16 @@ class FormTextCustom extends StatelessWidget {
           height: 10.0,
         ),
         TextFormField(
-          // onChanged: onChange,
-          controller: controller,
           maxLength: 100,
           decoration: InputDecoration(
+              fillColor: DilPartnerColor.cardColor,
               enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(
-                      width: 1.0, color: DilPartnerColor.fontColor),
-                  borderRadius: BorderRadius.circular(20.0))),
+                borderSide: const BorderSide(
+                    width: 1.0, color: DilPartnerColor.fontColor),
+                borderRadius: BorderRadius.circular(20.0),
+              ),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: borderRadius!, borderSide: borderSide!)),
         ),
         const SizedBox(
           height: 4.0,

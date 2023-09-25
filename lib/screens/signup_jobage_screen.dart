@@ -1,4 +1,5 @@
 import 'package:dilpartner/styles/asset_manager.dart';
+import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
 import 'package:dilpartner/widgets/form_text_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
@@ -13,6 +14,8 @@ class SignupUpAgejob extends StatefulWidget {
 class _SignupUpAgejobState extends State<SignupUpAgejob> {
   @override
   Widget build(BuildContext context) {
+    TextEditingController? occupationCOntroller;
+    TextEditingController? ageCOntroller;
     return Scaffold(
       body: Container(
         height: MediaQuery.sizeOf(context).height,
@@ -37,8 +40,20 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               const SizedBox(
                 height: 20.0,
               ),
-              FormTextCustom(name: "Occupation"),
-              FormTextCustom(name: "Age"),
+              FormTextCustom(
+                name: "Occupation",
+                borderRadius: BorderRadius.circular(20.0),
+                controller: occupationCOntroller,
+                borderSide:
+                    const BorderSide(color: DilPartnerColor.buttonColor),
+              ),
+              FormTextCustom(
+                name: "Age",
+                borderRadius: BorderRadius.circular(20.0),
+                controller: ageCOntroller,
+                borderSide:
+                    const BorderSide(color: DilPartnerColor.buttonColor),
+              ),
               const SizedBox(
                 height: 131.0,
               ),
