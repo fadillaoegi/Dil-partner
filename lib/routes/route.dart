@@ -7,4 +7,5 @@ class DilPartnerRoute {
   static String uploadScreen = '$root/uploadScreen';
   static String profileScreen = '$root/profileScreen';
   static String listContactScreen = '$root/listContactScreen';
+  static String searchRelationshipScreen = '$root/searchRelationshipScreen';
 }
