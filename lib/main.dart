@@ -16,5 +16,3 @@ class _MainAppState extends State<MainApp> {
     return const AppScreen();
   }
 }
-
-
