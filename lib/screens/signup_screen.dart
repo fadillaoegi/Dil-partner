@@ -90,7 +90,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             ButtonDefault(
               text: "Get Started",
-              onPress: () {},
+              onPress: () {
+                Navigator.pushNamed(context, DilPartnerRoute.uploadScreen);
+              },
             ),
             const SizedBox(
               height: 6.0,
