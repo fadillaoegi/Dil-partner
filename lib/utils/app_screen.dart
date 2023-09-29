@@ -20,7 +20,7 @@ class AppScreen extends StatelessWidget {
     return MaterialApp(
       theme: getThemeDefault(),
       debugShowCheckedModeBanner: false,
-      initialRoute: DilPartnerRoute.profileScreen,
+      initialRoute: DilPartnerRoute.splashScreen,
       routes: {
         DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
         DilPartnerRoute.signUpScreen: (context) => const SignUpScreen(),

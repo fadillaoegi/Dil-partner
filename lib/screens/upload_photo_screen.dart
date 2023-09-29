@@ -1,3 +1,4 @@
+import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
@@ -58,7 +59,10 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
               height: 20.0,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(
+                    context, DilPartnerRoute.searchRelationshipScreen);
+              },
               // ignore: sort_child_properties_last
               child: Text(
                 "Skip for Now",
