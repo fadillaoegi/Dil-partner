@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:dilpartner/routes/route.dart';
-import 'package:dilpartner/styles/asset_manager.dart';
+import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
+import 'package:dilpartner/utils/image_picker.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
 import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:dilpartner/widgets/upload_photo_widget.dart';
@@ -14,6 +17,18 @@ class UploadPhotoScreen extends StatefulWidget {
 }
 
 class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
+// File dari Dart:io
+  File? image;
+  void getImageProfile(GetImageFrom source) async {
+    final result = await ImagePickerUtil.getImage(source);
+
+    if (result != null) {
+      setState(() {
+        image = File(result.path);
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +46,37 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
             const SizedBox(
               height: 50.0,
             ),
-            UploadPhotoWidget(
-              image: "${DilAssetManager.asset}/profile_icon.png",
+            GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        height: 250.0,
+                        padding: const EdgeInsets.all(20.0),
+                        color: DilPartnerColor.buttonColor,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              IconButton(
+                                  onPressed: () {
+                                    getImageProfile(GetImageFrom.camera);
+                                  },
+                                  iconSize: 70.0,
+                                  color: Colors.white,
+                                  icon: const Icon(Icons.camera_alt)),
+                              IconButton(
+                                  onPressed: () {
+                                    getImageProfile(GetImageFrom.gallery);
+                                  },
+                                  iconSize: 70.0,
+                                  color: Colors.white,
+                                  icon: const Icon(Icons.photo)),
+                            ]),
+                      );
+                    });
+              },
+              child: UploadPhotoWidget(image: image),
             ),
             const SizedBox(
               height: 28.0,

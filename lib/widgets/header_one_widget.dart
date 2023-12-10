@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 class HeaderOneWidget extends StatelessWidget {
   String? text;
   Icon? icon;
+  // VoidCallback? onpress;
   HeaderOneWidget({super.key, this.text, this.icon});
 
   @override
@@ -28,7 +29,9 @@ class HeaderOneWidget extends StatelessWidget {
         IconButton(
           iconSize: 24.0,
           color: DilPartnerColor.fontColor,
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
           icon: icon!,
         ),
       ],
