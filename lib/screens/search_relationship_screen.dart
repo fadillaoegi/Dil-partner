@@ -1,3 +1,4 @@
+import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/widgets/button_circle.dart';
 import 'package:dilpartner/widgets/header_main_widget.dart';
@@ -24,7 +25,12 @@ class _SearchRelationshipScreenState extends State<SearchRelationshipScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // NOTE: HEADER
-            const HeaderMainWidget(),
+            HeaderMainWidget(
+              image: "${DilAssetManager.asset}/user_image.png",
+              onpressNotif: () {
+                Navigator.pushNamed(context, DilPartnerRoute.listContactScreen);
+              },
+            ),
             const SizedBox(
               height: 40.0,
             ),
