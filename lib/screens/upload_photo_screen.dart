@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
