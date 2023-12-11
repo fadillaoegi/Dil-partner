@@ -1,5 +1,7 @@
+import 'package:dilpartner/blocs/bloc/auth_bloc.dart';
 import 'package:dilpartner/utils/app_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() => runApp(const MainApp());
 
@@ -8,6 +10,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const AppScreen();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<AuthBloc>(
+          create: (context) => AuthBloc(),
+        ),
+      ],
+      child: const AppScreen(),
+    );
   }
 }

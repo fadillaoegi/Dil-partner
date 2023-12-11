@@ -1,3 +1,4 @@
+import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
@@ -42,6 +43,7 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               ),
               FormTextCustom(
                 name: "Occupation",
+                hint: "Mobile Dev",
                 borderRadius: BorderRadius.circular(20.0),
                 controller: occupationCOntroller,
                 borderSide:
@@ -49,6 +51,7 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               ),
               FormTextCustom(
                 name: "Age",
+                hint: "12",
                 borderRadius: BorderRadius.circular(20.0),
                 controller: ageCOntroller,
                 borderSide:
@@ -59,7 +62,9 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               ),
               ButtonDefault(
                 text: "Get Started",
-                onPress: () {},
+                onPress: () {
+                  Navigator.pushNamed(context, DilPartnerRoute.uploadScreen);
+                },
               ),
             ],
           ),
