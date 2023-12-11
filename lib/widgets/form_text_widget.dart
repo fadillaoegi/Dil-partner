@@ -33,8 +33,14 @@ class FormTextCustom extends StatelessWidget {
         ),
         TextFormField(
           maxLength: 100,
+          style: const TextStyle(color: DilPartnerColor.fontColor),
           decoration: InputDecoration(
-              fillColor: DilPartnerColor.cardColor,
+              hintText: hint,
+              hintStyle: const TextStyle(
+                  fontWeight: FontWeight.w300,
+                  wordSpacing: 3.0,
+                  color: Color.fromARGB(255, 149, 146, 146)),
+              fillColor: Colors.amber,
               enabledBorder: OutlineInputBorder(
                 borderSide: const BorderSide(
                     width: 1.0, color: DilPartnerColor.fontColor),

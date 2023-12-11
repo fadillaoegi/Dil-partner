@@ -25,8 +25,13 @@ class FormPassCustom extends StatelessWidget {
         TextFormField(
           obscureText: true,
           controller: controller,
-          maxLength: 100,                           
+          maxLength: 100,
+          style: const TextStyle(color: DilPartnerColor.fontColor),
           decoration: InputDecoration(
+              focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20.0),
+                  borderSide:
+                      const BorderSide(color: DilPartnerColor.buttonColor)),
               hoverColor: DilPartnerColor.fontColor,
               fillColor: DilPartnerColor.fontColor,
               enabledBorder: OutlineInputBorder(
