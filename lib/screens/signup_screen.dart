@@ -1,4 +1,5 @@
 import 'package:dilpartner/routes/route.dart';
+import 'package:dilpartner/screens/signup_jobage_screen.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/widgets/button_default_widget.dart';
@@ -20,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   Widget build(BuildContext context) {
     TextEditingController nameController = TextEditingController(text: "");
     TextEditingController emailController = TextEditingController(text: "");
-    TextEditingController? passwordController;
+    TextEditingController passwordController = TextEditingController(text: "");
 
     return Scaffold(
         body: Container(
@@ -71,7 +72,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
               // controller: emailController,
             ),
             FormPassCustom(
-              controller: passwordController,
+              controller: passwordController, hint: "********",
               name: "Password",
               // controller: passwordController,
             ),
@@ -87,8 +88,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
             ButtonTextWidget(
               onPress: () {
-                Navigator.pushReplacementNamed(
-                    context, DilPartnerRoute.signInScreen);
+                // Navigator.pushReplacementNamed(
+                //     context, DilPartnerRoute.signInScreen);
+
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => SignupUpAgejob(
+                              email: emailController.text,
+                              fullname: nameController.text,
+                              password: passwordController.text,
+                            )));
               },
               text: "Sign In to My Account",
             )

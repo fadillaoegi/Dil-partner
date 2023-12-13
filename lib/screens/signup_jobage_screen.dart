@@ -7,7 +7,16 @@ import 'package:dilpartner/widgets/header_logo.dart';
 import 'package:flutter/material.dart';
 
 class SignupUpAgejob extends StatefulWidget {
-  const SignupUpAgejob({super.key});
+  const SignupUpAgejob(
+      {super.key,
+      required this.fullname,
+      required this.email,
+      required this.password});
+
+  final String fullname;
+  final String email;
+  final String password;
+
   @override
   State<SignupUpAgejob> createState() => _SignupUpAgejobState();
 }
