@@ -17,12 +17,37 @@ class SignUpScreen extends StatefulWidget {
 }
 
 class _SignUpScreenState extends State<SignUpScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  @override
+  void dispose() {
+    nameController.clear();
+    emailController.clear();
+    passwordController.clear();
+    super.dispose();
+  }
+
+  String? validationForm() {
+    if (nameController.text.isEmpty &&
+        nameController.text.isEmpty &&
+        passwordController.text.isEmpty) {
+      return "All fields cannot be empty";
+    }
+    if (emailController.text.length < 4 &&
+        emailController.text.length < 4 &&
+        passwordController.text.length < 4) {
+      return "Panjang kolom tidak boleh kurang dari 4 huruf";
+    }
+
+    if (!emailController.text.contains("@")) {
+      return "Email invalid";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController nameController = TextEditingController(text: "");
-    TextEditingController emailController = TextEditingController(text: "");
-    TextEditingController passwordController = TextEditingController(text: "");
-
     return Scaffold(
         body: Container(
       height: MediaQuery.sizeOf(context).height,
@@ -79,18 +104,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ButtonDefault(
               text: "Get Started",
               onPress: () {
-                Navigator.pushNamed(
-                    context, DilPartnerRoute.signUpAgejobScreen);
-              },
-            ),
-            const SizedBox(
-              height: 6.0,
-            ),
-            ButtonTextWidget(
-              onPress: () {
-                // Navigator.pushReplacementNamed(
-                //     context, DilPartnerRoute.signInScreen);
-
+                final massage = validationForm();
+                print(massage);
+                if (massage != null) {
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(massage)));
+                  return;
+                }
                 Navigator.push(
                     context,
                     MaterialPageRoute(
@@ -99,6 +119,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               fullname: nameController.text,
                               password: passwordController.text,
                             )));
+                // Navigator.pushNamed(
+                //     context, DilPartnerRoute.signUpAgejobScreen);
+              },
+            ),
+            const SizedBox(
+              height: 6.0,
+            ),
+            ButtonTextWidget(
+              onPress: () {
+                Navigator.pushReplacementNamed(
+                    context, DilPartnerRoute.signInScreen);
               },
               text: "Sign In to My Account",
             )

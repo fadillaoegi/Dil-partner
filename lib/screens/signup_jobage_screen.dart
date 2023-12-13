@@ -1,3 +1,4 @@
+import 'package:dilpartner/models/user.dart';
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
@@ -22,10 +23,24 @@ class SignupUpAgejob extends StatefulWidget {
 }
 
 class _SignupUpAgejobState extends State<SignupUpAgejob> {
+  TextEditingController occupationCOntroller = TextEditingController(text: "");
+  TextEditingController ageCOntroller = TextEditingController(text: "");
+  @override
+  void dispose() {
+    occupationCOntroller.clear();
+    ageCOntroller.clear();
+    super.dispose();
+  }
+
+  String? validationForm() {
+    if (occupationCOntroller.text.isEmpty && ageCOntroller.text.isEmpty) {
+      return "All fields cannot be empty";
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController? occupationCOntroller;
-    TextEditingController? ageCOntroller;
     return Scaffold(
       body: Container(
         height: MediaQuery.sizeOf(context).height,
@@ -70,9 +85,33 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
                 height: 131.0,
               ),
               ButtonDefault(
-                text: "Get Started",
+                text: "Continue",
                 onPress: () {
-                  Navigator.pushNamed(context, DilPartnerRoute.uploadScreen);
+                  final massage = validationForm();
+                  // print(massage);
+                  if (massage != null) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(massage)));
+                    return;
+                  }
+                  User user = User(
+                      fullname: widget.fullname,
+                      email: widget.email,
+                      password: widget.password,
+                      occupation: occupationCOntroller.text,
+                      age: ageCOntroller.text);
+                  Navigator.pushNamed(context, DilPartnerRoute.uploadScreen,
+                      arguments: user);
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => UploadPhotoScreen(
+                  //               accoupation: occupationCOntroller.text,
+                  //               age: ageCOntroller.text,
+                  //               email: widget.email,
+                  //               fullname: widget.fullname,
+                  //               password: widget.password,
+                  //             )));
                 },
               ),
             ],

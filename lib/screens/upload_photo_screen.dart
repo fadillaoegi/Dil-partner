@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:dilpartner/models/user.dart';
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
@@ -9,7 +10,19 @@ import 'package:dilpartner/widgets/upload_photo_widget.dart';
 import 'package:flutter/material.dart';
 
 class UploadPhotoScreen extends StatefulWidget {
-  const UploadPhotoScreen({super.key});
+  const UploadPhotoScreen({
+    super.key,
+    // this.accoupation,
+    // this.age,
+    // this.email,
+    // this.fullname,
+    // this.password
+  });
+  // final String? fullname;
+  // final String? email;
+  // final String? password;
+  // final String? accoupation;
+  // final String? age;
 
   @override
   State<UploadPhotoScreen> createState() => _UploadPhotoScreenState();
@@ -30,6 +43,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
 
   @override
   Widget build(BuildContext context) {
+    User user = ModalRoute.of(context)?.settings.arguments as User;
     return Scaffold(
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 24.0),
@@ -81,14 +95,15 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
               height: 28.0,
             ),
             Text(
-              "Shofa Nabila Alifa",
+              // ignore: unnecessary_string_interpolations
+              "${user.fullname}",
               style: white500.copyWith(fontSize: 22.0),
             ),
             const SizedBox(
               height: 4.0,
             ),
             Text(
-              "22, Lawyer",
+              "${user.age}, ${user.occupation}",
               style: grey300.copyWith(fontSize: 16.0),
             ),
             const SizedBox(
