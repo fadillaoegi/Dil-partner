@@ -82,6 +82,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
             const SizedBox(
               height: 10.0,
             ),
+            // TextFormField(controller: emailController),
             FormTextCustom(
               name: "Complete Name", borderRadius: BorderRadius.circular(20.0),
               controller: nameController,
@@ -105,11 +106,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
               text: "Get Started",
               onPress: () {
                 final massage = validationForm();
-                print(massage);
+                // print(" ini data ${emailController.text}");
+                // print(" ini data ${passwordController.text}");
+                // print(" ini data ${nameController.text}");
+
                 if (massage != null) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(massage)));
-                  return;
                 }
                 Navigator.push(
                     context,

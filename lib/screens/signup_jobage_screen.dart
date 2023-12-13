@@ -41,6 +41,8 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
 
   @override
   Widget build(BuildContext context) {
+    // print("ini data ${widget.fullname}");
+
     return Scaffold(
       body: Container(
         height: MediaQuery.sizeOf(context).height,
@@ -72,6 +74,17 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
                 controller: occupationCOntroller,
                 borderSide:
                     const BorderSide(color: DilPartnerColor.buttonColor),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                // ignore: unnecessary_string_interpolations
+                "${widget.fullname}",
+                style: const TextStyle(fontSize: 40.0, color: Colors.amber),
+              ),
+              const SizedBox(
+                height: 20.0,
               ),
               FormTextCustom(
                 name: "Age",

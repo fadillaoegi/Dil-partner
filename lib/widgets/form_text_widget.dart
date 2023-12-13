@@ -32,6 +32,7 @@ class FormTextCustom extends StatelessWidget {
           height: 10.0,
         ),
         TextFormField(
+          controller: controller,
           maxLength: 100,
           style: const TextStyle(color: DilPartnerColor.fontColor),
           decoration: InputDecoration(
