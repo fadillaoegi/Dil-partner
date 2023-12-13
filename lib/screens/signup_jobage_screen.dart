@@ -23,8 +23,8 @@ class SignupUpAgejob extends StatefulWidget {
 }
 
 class _SignupUpAgejobState extends State<SignupUpAgejob> {
-  TextEditingController occupationCOntroller = TextEditingController(text: "");
-  TextEditingController ageCOntroller = TextEditingController(text: "");
+  TextEditingController occupationCOntroller = TextEditingController();
+  TextEditingController ageCOntroller = TextEditingController();
   @override
   void dispose() {
     occupationCOntroller.clear();
@@ -32,12 +32,12 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
     super.dispose();
   }
 
-  String? validationForm() {
-    if (occupationCOntroller.text.isEmpty && ageCOntroller.text.isEmpty) {
-      return "All fields cannot be empty";
-    }
-    return null;
-  }
+  // String? validationForm() {
+  //   if (occupationCOntroller.text.isEmpty && ageCOntroller.text.isEmpty) {
+  //     return "All fields cannot be empty";
+  //   }
+  //   return null;
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +87,13 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               ButtonDefault(
                 text: "Continue",
                 onPress: () {
-                  final massage = validationForm();
+                  // final massage = validationForm();
                   // print(massage);
-                  if (massage != null) {
-                    ScaffoldMessenger.of(context)
-                        .showSnackBar(SnackBar(content: Text(massage)));
-                    return;
-                  }
+                  // if (massage != null) {
+                  //   ScaffoldMessenger.of(context)
+                  //       .showSnackBar(SnackBar(content: Text(massage)));
+                  //   return;
+                  // }
                   User user = User(
                       fullname: widget.fullname,
                       email: widget.email,

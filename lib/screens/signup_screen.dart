@@ -40,7 +40,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       return "Panjang kolom tidak boleh kurang dari 4 huruf";
     }
 
-    if (!emailController.text.contains("@")) {
+    if (emailController.text.contains('@')) {
       return "Email invalid";
     }
     return null;
