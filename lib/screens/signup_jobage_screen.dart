@@ -32,12 +32,12 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
     super.dispose();
   }
 
-  // String? validationForm() {
-  //   if (occupationCOntroller.text.isEmpty && ageCOntroller.text.isEmpty) {
-  //     return "All fields cannot be empty";
-  //   }
-  //   return null;
-  // }
+  String? validationForm() {
+    if (occupationCOntroller.text.isEmpty || ageCOntroller.text.isEmpty) {
+      return "All fields cannot be empty";
+    }
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,17 +75,6 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
                 borderSide:
                     const BorderSide(color: DilPartnerColor.buttonColor),
               ),
-              const SizedBox(
-                height: 20.0,
-              ),
-              Text(
-                // ignore: unnecessary_string_interpolations
-                "${widget.fullname}",
-                style: const TextStyle(fontSize: 40.0, color: Colors.amber),
-              ),
-              const SizedBox(
-                height: 20.0,
-              ),
               FormTextCustom(
                 name: "Age",
                 hint: "12",
@@ -100,13 +89,13 @@ class _SignupUpAgejobState extends State<SignupUpAgejob> {
               ButtonDefault(
                 text: "Continue",
                 onPress: () {
-                  // final massage = validationForm();
+                  final massage = validationForm();
                   // print(massage);
-                  // if (massage != null) {
-                  //   ScaffoldMessenger.of(context)
-                  //       .showSnackBar(SnackBar(content: Text(massage)));
-                  //   return;
-                  // }
+                  if (massage != null) {
+                    ScaffoldMessenger.of(context)
+                        .showSnackBar(SnackBar(content: Text(massage)));
+                    return;
+                  }
                   User user = User(
                       fullname: widget.fullname,
                       email: widget.email,

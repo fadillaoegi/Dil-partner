@@ -34,13 +34,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
         passwordController.text.isEmpty) {
       return "All fields cannot be empty";
     }
-    if (emailController.text.length < 4 &&
-        emailController.text.length < 4 &&
+    if (emailController.text.length < 4 ||
+        emailController.text.length < 4 ||
         passwordController.text.length < 4) {
       return "Panjang kolom tidak boleh kurang dari 4 huruf";
     }
 
-    if (emailController.text.contains('@')) {
+    if (!emailController.text.contains('@')) {
       return "Email invalid";
     }
     return null;
@@ -113,6 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 if (massage != null) {
                   ScaffoldMessenger.of(context)
                       .showSnackBar(SnackBar(content: Text(massage)));
+                  return;
                 }
                 Navigator.push(
                     context,

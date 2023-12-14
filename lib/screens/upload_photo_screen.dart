@@ -133,8 +133,8 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                   context
                       .read<AuthBloc>()
                       .add(RegisterAuth(user: user, isRegister: true));
-                  // Navigator.pushNamed(
-                  //     context, DilPartnerRoute.searchRelationshipScreen);
+                  Navigator.pushNamed(
+                      context, DilPartnerRoute.searchRelationshipScreen);
                 },
                 // ignore: sort_child_properties_last
                 child: Text(
