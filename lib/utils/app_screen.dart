@@ -1,3 +1,4 @@
+import 'package:dilpartner/data/user_data_local.dart';
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/screens/list_contact_screen.dart';
 import 'package:dilpartner/screens/profile_screen.dart';
@@ -9,17 +10,39 @@ import 'package:dilpartner/screens/upload_photo_screen.dart';
 import 'package:dilpartner/styles/theme_default.dart';
 import 'package:flutter/material.dart';
 
-class AppScreen extends StatelessWidget {
+class AppScreen extends StatefulWidget {
   const AppScreen({
     super.key,
   });
+
+  @override
+  State<AppScreen> createState() => _AppScreenState();
+}
+
+class _AppScreenState extends State<AppScreen> {
+  bool isResgiter = false;
+
+  isUserRegister() async {
+    isResgiter = await DataUserRegisterLocal.getUserRegister();
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+
+    isUserRegister();
+  }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: getThemeDefault(),
       debugShowCheckedModeBanner: false,
-      initialRoute: DilPartnerRoute.splashScreen,
+      home:
+          isResgiter ? const SearchRelationshipScreen() : const SignUpScreen(),
+      // initialRoute: DilPartnerRoute.splashScreen,
       routes: {
         DilPartnerRoute.splashScreen: (context) => const SplashScreen(),
         DilPartnerRoute.signUpScreen: (context) => const SignUpScreen(),
