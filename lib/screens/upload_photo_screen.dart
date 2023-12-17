@@ -121,20 +121,27 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
               const SizedBox(
                 height: 240.0,
               ),
-              ButtonDefault(
-                onPress: () {
-                  user.image = images?.path;
-                  // User updatedUser = user.copyWith(image: images?.path);
-                  context
-                      .read<AuthBloc>()
-                      .add(RegisterAuth(user: user, isRegister: true));
-                  Navigator.pushNamedAndRemoveUntil(
-                      context,
-                      DilPartnerRoute.searchRelationshipScreen,
-                      (route) => false);
-                },
-                text: "Update My Profile",
-              ),
+              BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
+                if (state is AuthLoading) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                }
+                return ButtonDefault(
+                  onPress: () {
+                    user.image = images?.path;
+                    // User updatedUser = user.copyWith(image: images?.path);
+                    context
+                        .read<AuthBloc>()
+                        .add(RegisterAuth(user: user, isRegister: true));
+                    Navigator.pushNamedAndRemoveUntil(
+                        context,
+                        DilPartnerRoute.searchRelationshipScreen,
+                        (route) => false);
+                  },
+                  text: "Update My Profile",
+                );
+              }),
               const SizedBox(
                 height: 20.0,
               ),

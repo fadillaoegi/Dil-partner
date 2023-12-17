@@ -11,7 +11,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
   ProfileBloc() : super(ProfileInitial()) {
     on<OnExplore>((event, emit) async {
       emit(ProfileLoading());
-      Future.delayed(const Duration(seconds: 3));
+      Future.delayed(const Duration(seconds: 10));
       emit(ProfileDone(dataProfile));
     });
   }
