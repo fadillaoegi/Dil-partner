@@ -35,4 +35,9 @@ class DataUserRegisterLocal {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.setBool(userRegisterKey, isRegistered);
   }
+
+  static void logout() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove(userRegisterKey);
+  }
 }

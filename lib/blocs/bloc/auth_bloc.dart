@@ -1,5 +1,5 @@
 import 'package:bloc/bloc.dart';
-import 'package:dilpartner/data/user_data_local.dart';
+import 'package:dilpartner/data/user_account_data_local.dart';
 import 'package:dilpartner/models/user.dart';
 // ignore: depend_on_referenced_packages
 import 'package:meta/meta.dart';
