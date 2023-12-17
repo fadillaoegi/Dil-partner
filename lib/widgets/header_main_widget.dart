@@ -1,3 +1,4 @@
+import 'package:dilpartner/data/user_account_data_local.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +15,11 @@ class HeaderMainWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        CircleAvatar(backgroundImage: AssetImage(image!)),
+        GestureDetector(
+            onTap: () {
+              DataUserRegisterLocal();
+            },
+            child: CircleAvatar(backgroundImage: AssetImage(image!))),
         Text(
           "DILPARTNER",
           style: logo400.copyWith(fontSize: 28.0),
