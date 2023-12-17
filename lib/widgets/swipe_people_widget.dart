@@ -36,7 +36,9 @@ class SwipePeopleWidget extends StatelessWidget {
                     ))),
           ),
         ),
-
+        const SizedBox(
+          height: 50.0,
+        ),
         // NOTE: INFORMASI USER
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 21.0, vertical: 20.0),
@@ -56,7 +58,7 @@ class SwipePeopleWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Nabila",
+                    userProfile.fullname,
                     style: white500.copyWith(fontSize: 24.0),
                   ),
                   Text(

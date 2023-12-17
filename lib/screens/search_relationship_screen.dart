@@ -1,9 +1,13 @@
+import 'package:appinio_swiper/appinio_swiper.dart';
+import 'package:dilpartner/blocs/profile/profile_bloc.dart';
 import 'package:dilpartner/data/user_data_local.dart';
 import 'package:dilpartner/models/user.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/widgets/button_circle.dart';
 import 'package:dilpartner/widgets/header_main_widget.dart';
+import 'package:dilpartner/widgets/swipe_people_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SearchRelationshipScreen extends StatefulWidget {
   const SearchRelationshipScreen({
@@ -29,8 +33,9 @@ class _SearchRelationshipScreenState extends State<SearchRelationshipScreen> {
 
   @override
   void initState() {
-    getDataAccount();
     super.initState();
+    getDataAccount();
+    context.read<ProfileBloc>().add(OnExplore());
   }
 
   @override
@@ -57,7 +62,39 @@ class _SearchRelationshipScreenState extends State<SearchRelationshipScreen> {
             ),
 
             // NOTE: SLIDE CONTENT
-            // SwipePeopleWidget(),
+            BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+              if (state is ProfileLoading) {
+                return const Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+              if (state is ProfileDone) {
+                final userProf = state.result;
+                // List<Widget> cards = [];
+
+                // for (var user in userProf) {
+                //   cards.add(SwipePeopleWidget(userProfile: user));
+                // }
+                return Expanded(
+                  child: AppinioSwiper(
+                    cardBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          SwipePeopleWidget(userProfile: userProf[index]),
+                        ],
+                      );
+                    },
+                    cardCount: userProf.length,
+                    onEnd: () {
+                      context.read<ProfileBloc>().add(OnExplore());
+                    },
+                  ),
+
+                  // child: SwipePeopleWidget(),
+                );
+              }
+              return Container();
+            }),
 
             const SizedBox(
               height: 50.0,
