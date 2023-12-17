@@ -1,10 +1,16 @@
+import 'package:dilpartner/models/user_profile.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/styles/colors.dart';
 import 'package:dilpartner/styles/fonts.dart';
 import 'package:flutter/material.dart';
 
 class SwipePeopleWidget extends StatelessWidget {
-  const SwipePeopleWidget({super.key});
+  const SwipePeopleWidget({
+    super.key,
+    required this.userProfile,
+  });
+
+  final UserProfile userProfile;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +32,8 @@ class SwipePeopleWidget extends StatelessWidget {
                 image: DecorationImage(
                     fit: BoxFit.cover,
                     image: AssetImage(
-                        "${DilAssetManager.asset}/people_love3_image.png"))),
+                      userProfile.imagePath,
+                    ))),
           ),
         ),
 
@@ -53,7 +60,7 @@ class SwipePeopleWidget extends StatelessWidget {
                     style: white500.copyWith(fontSize: 24.0),
                   ),
                   Text(
-                    "21, Ustadza",
+                    "${userProfile.age}, ${userProfile.occupation}",
                     style: white300.copyWith(fontSize: 16.0),
                   ),
                 ],

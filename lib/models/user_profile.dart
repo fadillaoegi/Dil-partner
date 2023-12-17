@@ -4,12 +4,12 @@ class UserProfile {
   final String occupation;
   final int age;
   final String decription;
-  final String image;
+  final String imagePath;
   UserProfile({
     required this.fullname,
     required this.occupation,
     required this.age,
     required this.decription,
-    required this.image,
+    required this.imagePath,
   });
 }

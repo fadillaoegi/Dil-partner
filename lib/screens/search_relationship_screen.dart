@@ -1,12 +1,15 @@
-import 'package:dilpartner/routes/route.dart';
+import 'package:dilpartner/data/user_data_local.dart';
+import 'package:dilpartner/models/user.dart';
 import 'package:dilpartner/styles/asset_manager.dart';
 import 'package:dilpartner/widgets/button_circle.dart';
 import 'package:dilpartner/widgets/header_main_widget.dart';
-import 'package:dilpartner/widgets/swipe_people_widget.dart';
 import 'package:flutter/material.dart';
 
 class SearchRelationshipScreen extends StatefulWidget {
-  const SearchRelationshipScreen({super.key});
+  const SearchRelationshipScreen({
+    super.key,
+    // required this.userProfile,
+  });
 
   @override
   State<SearchRelationshipScreen> createState() =>
@@ -14,8 +17,26 @@ class SearchRelationshipScreen extends StatefulWidget {
 }
 
 class _SearchRelationshipScreenState extends State<SearchRelationshipScreen> {
+  User? account;
+  getDataAccount() async {
+    final dataAaccount = await DataUserLoginLocal.getDataUserFromLocal();
+    final result = User.fromMap(dataAaccount);
+
+    account = result;
+
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getDataAccount();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // final UserProfile userProfile;
+
     return Scaffold(
       body: Container(
         height: MediaQuery.sizeOf(context).height,
@@ -26,17 +47,17 @@ class _SearchRelationshipScreenState extends State<SearchRelationshipScreen> {
           children: [
             // NOTE: HEADER
             HeaderMainWidget(
-              image: "${DilAssetManager.asset}/user_image.png",
-              onpressNotif: () {
-                Navigator.pushNamed(context, DilPartnerRoute.listContactScreen);
-              },
+              image: "${account?.image}",
+              // onpressNotif: () {
+              //   Navigator.pushNamed(context, DilPartnerRoute.listContactScreen);
+              // },
             ),
             const SizedBox(
               height: 40.0,
             ),
 
             // NOTE: SLIDE CONTENT
-            const SwipePeopleWidget(),
+            // SwipePeopleWidget(),
 
             const SizedBox(
               height: 50.0,

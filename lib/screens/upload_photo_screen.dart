@@ -1,5 +1,5 @@
 import 'dart:io';
-import 'package:dilpartner/blocs/bloc/auth_bloc.dart';
+import 'package:dilpartner/blocs/auth/auth_bloc.dart';
 import 'package:dilpartner/models/user.dart';
 import 'package:dilpartner/routes/route.dart';
 import 'package:dilpartner/styles/colors.dart';
@@ -32,13 +32,13 @@ class UploadPhotoScreen extends StatefulWidget {
 
 class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
 // File dari Dart:io
-  File? image;
+  File? images;
   void getImageProfile(GetImageFrom source) async {
     final result = await ImagePickerUtil.getImage(source);
 
     if (result != null) {
       setState(() {
-        image = File(result.path);
+        images = File(result.path);
       });
     }
   }
@@ -101,7 +101,7 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                         );
                       });
                 },
-                child: UploadPhotoWidget(image: image),
+                child: UploadPhotoWidget(image: images),
               ),
               const SizedBox(
                 height: 28.0,
@@ -122,7 +122,17 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                 height: 240.0,
               ),
               ButtonDefault(
-                onPress: () {},
+                onPress: () {
+                  user.image = images?.path;
+                  // User updatedUser = user.copyWith(image: images?.path);
+                  context
+                      .read<AuthBloc>()
+                      .add(RegisterAuth(user: user, isRegister: true));
+                  Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      DilPartnerRoute.searchRelationshipScreen,
+                      (route) => false);
+                },
                 text: "Update My Profile",
               ),
               const SizedBox(
@@ -133,8 +143,13 @@ class _UploadPhotoScreenState extends State<UploadPhotoScreen> {
                   context
                       .read<AuthBloc>()
                       .add(RegisterAuth(user: user, isRegister: true));
-                  Navigator.pushNamed(
-                      context, DilPartnerRoute.searchRelationshipScreen);
+
+                  Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      DilPartnerRoute.searchRelationshipScreen,
+                      (route) => false);
+                  // Navigator.pushNamed(
+                  //     context, DilPartnerRoute.searchRelationshipScreen);
                 },
                 // ignore: sort_child_properties_last
                 child: Text(
