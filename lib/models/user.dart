@@ -7,7 +7,7 @@ class User {
   final String password;
   final String occupation;
   final String age;
-  final String? image;
+  String? image;
   User({
     required this.fullname,
     required this.email,
@@ -59,7 +59,8 @@ class User {
 
   String toJson() => json.encode(toMap());
 
-  factory User.fromJson(String source) => User.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory User.fromJson(String source) =>
+      User.fromMap(json.decode(source) as Map<String, dynamic>);
 
   @override
   String toString() {
@@ -69,23 +70,22 @@ class User {
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
-  
-    return 
-      other.fullname == fullname &&
-      other.email == email &&
-      other.password == password &&
-      other.occupation == occupation &&
-      other.age == age &&
-      other.image == image;
+
+    return other.fullname == fullname &&
+        other.email == email &&
+        other.password == password &&
+        other.occupation == occupation &&
+        other.age == age &&
+        other.image == image;
   }
 
   @override
   int get hashCode {
     return fullname.hashCode ^
-      email.hashCode ^
-      password.hashCode ^
-      occupation.hashCode ^
-      age.hashCode ^
-      image.hashCode;
+        email.hashCode ^
+        password.hashCode ^
+        occupation.hashCode ^
+        age.hashCode ^
+        image.hashCode;
   }
 }
